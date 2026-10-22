@@ -11,3 +11,12 @@ FloatingContactBar có hotline, Zalo, Facebook, TikTok và nút Về đầu tran
 GSAP dùng skill gsap-react và gsap-core: useGSAP có scope/ref và cleanup; chuyển trang fade/translate nhẹ và hero xuất hiện lần lượt; không trì hoãn điều hướng. Tài liệu GSAP: https://gsap.com/resources/React/.
 
 Đã kiểm tra bằng trình duyệt ở desktop và iframe viewport390x680; bản preview tạm đã xóa trước build. Hình kiểm tra trong doc/reports/brand-*-2026-10-23.png. Test mới kiểm tra link, ngưỡng300px và nút pause/resume.
+
+## Xác nhận triển khai
+
+- Đã triển khai tại https://tranhtrap.com.vn/; release `release-20261023T021000Z`, mã nguồn `53cdf30`.
+- Typecheck, lint, build và toàn bộ 52 test client + 15 test server đều đạt; npm audit production không có cảnh báo lỗ hổng tại thời điểm kiểm tra.
+- HTTPS trả đúng title và bundle mới; health API báo database connected, container API healthy.
+- Giữ nguyên file cấu hình thực trên máy chủ (quyền và thời gian sửa không đổi), giữ volume MongoDB; đã chạy backup trước triển khai.
+- Ảnh xác nhận trực tiếp trên website: `../reports/brand-public-2026-10-23.png` và `../reports/brand-public-footer-2026-10-23.png`.
+- Chatbot dùng các đoạn kiến thức biên soạn từ cẩm nang và trang nguồn trong prompt, không phải fine-tune hay lập chỉ mục toàn bộ PDF. Đã kiểm tra chọn ngữ cảnh và cấu trúc prompt bằng test; chưa gọi Gemini trực tiếp trên production trong đợt xác nhận này.
