@@ -1,5 +1,10 @@
 import { useIsFetching } from "@tanstack/react-query";
 import { Outlet, useLocation, useNavigation } from "react-router-dom";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 export function PageLoader({
   message = "Đang chuẩn bị trải nghiệm…",
@@ -24,6 +29,35 @@ export function PageLoader({
 
 export function PageMotion() {
   const { pathname } = useLocation();
+  const content = useRef<HTMLDivElement>(null);
+  useGSAP(
+    () => {
+      const media = gsap.matchMedia();
+      media.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.from(content.current, {
+          opacity: 0.2,
+          y: 10,
+          duration: 0.38,
+          ease: "power2.out",
+          clearProps: "all",
+        });
+        const intro = content.current?.querySelectorAll(
+          ".hero-content > *, .public-hero > div > *",
+        );
+        if (intro?.length)
+          gsap.from(intro, {
+            opacity: 0,
+            y: 15,
+            stagger: 0.065,
+            duration: 0.5,
+            ease: "power2.out",
+            clearProps: "all",
+          });
+      });
+      return () => media.revert();
+    },
+    { scope: content, dependencies: [pathname], revertOnUpdate: true },
+  );
   const navigation = useNavigation();
   // Background refetches should not interrupt the page the user is reading.
   const pending = useIsFetching({
@@ -39,7 +73,7 @@ export function PageMotion() {
       >
         <span />
       </div>
-      <div key={pathname} className="page-enter">
+      <div ref={content} key={pathname} className="page-enter">
         <Outlet />
       </div>
     </>

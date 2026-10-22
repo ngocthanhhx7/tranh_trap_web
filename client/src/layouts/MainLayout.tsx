@@ -10,13 +10,13 @@ import {
   Mail,
   MapPin,
   ArrowUpRight,
-  Facebook,
-  Instagram,
-  Globe,
 } from "lucide-react";
 import { useStore } from "../app/Store";
 import { ChatWidget } from "../components/common/ChatWidget";
 import { PageMotion } from "../components/common/PageMotion";
+import { BrandMarquee } from "../components/common/BrandMarquee";
+import { FloatingContactBar } from "../components/common/FloatingContactBar";
+import { contacts, socialLinks } from "../config/contacts";
 export function MainLayout() {
   const { user, quantity, logout } = useStore();
   const [menu, setMenu] = useState(false);
@@ -28,6 +28,7 @@ export function MainLayout() {
   }, [location.pathname]);
   return (
     <div className="app-shell">
+      <BrandMarquee />
       <header className="site-header">
         <div className="container header-inner">
           <Link className="brand" to="/" aria-label="Tránh Trap — Trang chủ">
@@ -38,7 +39,7 @@ export function MainLayout() {
             aria-label="Điều hướng chính"
           >
             <NavLink to="/" end>
-              Home
+              Trang chủ
             </NavLink>
             <NavLink to="/ve-tranh-trap">Về Tránh Trap</NavLink>
             <NavLink to="/cau-chuyen">Câu chuyện</NavLink>
@@ -145,9 +146,9 @@ export function MainLayout() {
           </div>
           <div>
             <h4>Kết nối</h4>
-            <a href="tel:0358341830">
+            <a href={`tel:${contacts.phone}`}>
               <Phone size={14} />
-              0358 341 830
+              {contacts.phoneDisplay}
             </a>
             <a href="mailto:tranhtrap.boardgame@gmail.com">
               <Mail size={14} />
@@ -158,15 +159,17 @@ export function MainLayout() {
               Hòa Lạc · Hà Nội
             </p>
             <div className="socials">
-              <Link to="/lien-he" aria-label="Thông tin Facebook">
-                <Facebook size={16} />
-              </Link>
-              <Link to="/lien-he" aria-label="Thông tin Instagram">
-                <Instagram size={16} />
-              </Link>
-              <Link to="/lien-he" aria-label="Kênh kết nối">
-                <Globe size={16} />
-              </Link>
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.name}
+                >
+                  <img src={link.icon} alt="" />
+                </a>
+              ))}
             </div>
           </div>
         </div>
@@ -182,6 +185,7 @@ export function MainLayout() {
           </div>
         </div>
       </footer>
+      <FloatingContactBar />
       <ChatWidget />
     </div>
   );

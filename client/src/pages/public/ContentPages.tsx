@@ -13,6 +13,7 @@ import {
   UsersRound,
 } from "lucide-react";
 import { api } from "../../services/shop";
+import { socialLinks } from "../../config/contacts";
 import {
   ButtonLink,
   Empty,
@@ -297,10 +298,22 @@ export function ContactPage() {
             </a>
           ))}
           <div className="contact-item" style={{ background: "#eeeffb" }}>
-            <p style={{ fontSize: 12, margin: 0 }}>
-              Kênh Facebook và TikTok chính thức đang được cập nhật. Bạn có thể
-              liên hệ trực tiếp qua email hoặc số điện thoại bên trên.
-            </p>
+            <div>
+              <strong>Kết nối cùng Tránh Trap</strong>
+              <div className="socials contact-socials">
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.name}
+                  >
+                    <img src={link.icon} alt="" />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </aside>
         <section className="card" id="loi-nhan">

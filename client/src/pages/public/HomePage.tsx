@@ -1,13 +1,70 @@
+import {
+  Gamepad2,
+  ShieldCheck,
+  UsersRound,
+  ArrowRight,
+  Hourglass,
+  Lightbulb,
+  ScanEye,
+  Fingerprint,
+  MessagesSquare,
+  BookOpen,
+  TriangleAlert,
+  LockKeyhole,
+  Search,
+  Flag,
+  FolderSearch,
+  Eye,
+  MessageCircle,
+  CheckCheck,
+  Play,
+  ArrowUpRight,
+  Hand,
+  Clapperboard,
+  ShoppingBag,
+  Sparkles,
+  type LucideIcon,
+} from "lucide-react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { SectionTitle, Tag } from "../../components/common/UI";
 import { useCatalog } from "../../services/shop";
+// Consistent rounded Lucide symbols replace the tiny raster-like Figma exports.
+const homeIcons: Record<number, LucideIcon> = {
+  6: Gamepad2,
+  7: ShieldCheck,
+  8: UsersRound,
+  9: ArrowRight,
+  10: UsersRound,
+  11: Hourglass,
+  12: Lightbulb,
+  13: ScanEye,
+  14: Fingerprint,
+  15: MessagesSquare,
+  16: BookOpen,
+  17: TriangleAlert,
+  18: LockKeyhole,
+  19: Search,
+  20: Flag,
+  21: FolderSearch,
+  23: Eye,
+  24: MessageCircle,
+  25: CheckCheck,
+  26: Play,
+  28: ArrowUpRight,
+  29: Hand,
+  31: Clapperboard,
+  33: BookOpen,
+  37: ShoppingBag,
+};
 function DesignIcon({ asset }: { asset: number }) {
+  const Icon = homeIcons[asset] ?? Sparkles;
   return (
-    <img
+    <Icon
       className="design-icon"
-      src={`/images/figma/home-${asset}.svg`}
-      alt=""
+      size={20}
+      strokeWidth={1.8}
+      aria-hidden="true"
     />
   );
 }
@@ -39,9 +96,9 @@ export function HomePage() {
           <div className="hero-content">
             <Tag>Board game giáo dục</Tag>
             <h1>
-              Chơi thông minh
+              Tỉnh táo online
               <br />
-              <em>Tránh mọi cái bẫy trên không gian số</em>
+              <em>Biết sai để tránh</em>
             </h1>
             <p>
               Trò chơi nâng cao kỹ năng tự bảo vệ trên môi trường số qua những
