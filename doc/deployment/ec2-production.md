@@ -1,22 +1,22 @@
 # Triển khai EC2 và cấu hình môi trường
 
-Đích: `tranhtrap.com.vn`, EC2 Amazon Linux 2023 ARM64, IP `16.176.29.234`. Mã nguồn: https://github.com/ngocthanhhx7/tranh_trap_web. Không đưa khóa SSH hoặc `.env` lên GitHub. Bản build production không nạp file môi trường local.
+Đích: `tranhtrap.com.vn`, EC2 Amazon Linux 2023 ARM64, IP `3.27.247.136`. Mã nguồn: https://github.com/ngocthanhhx7/tranh_trap_web. Không đưa khóa SSH hoặc `.env` lên GitHub. Bản build production không nạp file môi trường local.
 
 ## Kết nối và cấu hình
 
 Từ PowerShell trên máy của bạn:
 
 ```powershell
-ssh -i E:/key/tranhtrap.pem ec2-user@16.176.29.234
+ssh -i E:/key/tranhtrap.pem ec2-user@3.27.247.136
 ```
 
 Sau khi vào server, mở file bằng editor; không gửi nội dung file vào chat:
 
 ```bash
-vi /opt/tranhtrap/shared/.env
+nano /opt/tranhtrap/shared/.env
 ```
 
-Nhấn `i` để sửa, xong nhấn `Esc`, gõ `:wq` rồi Enter để lưu và thoát. File chỉ tài khoản EC2 được đọc/ghi (mode 600). Ứng dụng nạp file này qua dotenv; có thể đặt giá trị trong dấu nháy, đặc biệt nếu chứa `#` hoặc khoảng trắng.
+Sửa trực tiếp; nhấn `Ctrl+O`, Enter để lưu, rồi `Ctrl+X` để thoát. File chỉ tài khoản EC2 được đọc/ghi (mode 600). Ứng dụng nạp file này qua dotenv; có thể đặt giá trị trong dấu nháy, đặc biệt nếu chứa `#` hoặc khoảng trắng.
 
 Các biến bạn cần điền:
 
@@ -82,3 +82,16 @@ Chạy kiểm thử/typecheck/lint/build local. Dùng `node deploy/package-relea
 Frontend có symlink `/var/www/tranhtrap/previous`. Khi cần rollback toàn bộ, chuyển `current` về release trước, chạy `sudo /usr/local/sbin/tranhtrap-restart tranhtrap-api:<release-trước>` và `sudo systemctl reload nginx`. Thay đổi schema cần đánh giá riêng; rollback ứng dụng không tự phục hồi database.
 
 Gemini/SMTP/PayOS cần kiểm thử thật sau khi bạn nhập cấu hình. Trạng thái health API hoặc có biến cấu hình không chứng minh dịch vụ bên ngoài đã hoạt động.
+
+## HTTPS trên máy cài lần đầu
+
+Sau khi DNS apex/www đúng server và AWS mở80/443, cài Certbot trong /opt/certbot rồi chạy:
+
+```bash
+sudo /opt/certbot/bin/certbot certonly --nginx --non-interactive --agree-tos --register-unsafely-without-email -d tranhtrap.com.vn -d www.tranhtrap.com.vn
+sudo install -m 644 deploy/nginx-https.conf /etc/nginx/conf.d/tranhtrap.conf
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+Chỉ cài nginx-https.conf khi chứng chỉ đã được cấp. Cài các file deploy/_.service và deploy/_.timer vào /etc/systemd/system, daemon-reload và enable hai timer. Máy hiện tại đã hoàn thành các bước này, không cần chạy cấp mới. File deploy/nginx.conf là cấu hình HTTP lúc khởi tạo; không ghi đè cấu hình HTTPS đang hoạt động bằng file này.
