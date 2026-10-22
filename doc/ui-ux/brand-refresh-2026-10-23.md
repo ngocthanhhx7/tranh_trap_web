@@ -28,3 +28,7 @@ Zalo dùng nền trắng, bỏ vòng xanh lồng nhau; Facebook được bo trò
 ## Thanh liên hệ mobile thu gọn
 
 Ở màn hình tối đa 900px, mặc định chỉ hiện một nút liên hệ 44px ở góc trái dưới và tính safe-area. Nhấn mở các nút theo chiều dọc, giới hạn chiều cao theo viewport; đóng khi chọn kênh, chạm ngoài hoặc Escape. Các liên kết bị ẩn không nằm trong thứ tự Tab. Desktop giữ thanh dọc luôn mở; khi chat mobile mở vẫn ẩn thanh liên hệ. Đã đạt lint, build và 3 test thanh liên hệ, gồm thao tác mở/đóng trên mobile. Frontend release-20261023T024000Z đã được xác nhận qua HTTPS; trình duyệt tự động hiện bị tắt nên chưa chụp lại giao diện mobile trực tiếp.
+
+## Căn giữa nút mạng xã hội ở trang Liên hệ
+
+Sửa riêng .contact-socials: inline-flex căn giữa hai chiều, nút 46px, logo 28px, khoảng cách 12px và xuống dòng khi cần; bổ sung hover, active, focus-visible và reduced-motion. Không thay đổi liên kết. Build từ snapshot HEAD cộng đúng thay đổi CSS để không triển khai các chỉnh sửa cẩm nang chưa hoàn tất trong workspace. Build đạt, frontend release-20261023T025000Z đã được kiểm tra trực tiếp qua trình duyệt trên /lien-he. Ảnh xác nhận: ../reports/contact-page-fix-2026-10-23.png.
