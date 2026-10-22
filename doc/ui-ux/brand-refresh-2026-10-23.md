@@ -20,3 +20,7 @@ GSAP dùng skill gsap-react và gsap-core: useGSAP có scope/ref và cleanup; ch
 - Giữ nguyên file cấu hình thực trên máy chủ (quyền và thời gian sửa không đổi), giữ volume MongoDB; đã chạy backup trước triển khai.
 - Ảnh xác nhận trực tiếp trên website: `../reports/brand-public-2026-10-23.png` và `../reports/brand-public-footer-2026-10-23.png`.
 - Chatbot dùng các đoạn kiến thức biên soạn từ cẩm nang và trang nguồn trong prompt, không phải fine-tune hay lập chỉ mục toàn bộ PDF. Đã kiểm tra chọn ngữ cảnh và cấu trúc prompt bằng test; chưa gọi Gemini trực tiếp trên production trong đợt xác nhận này.
+
+## Tinh chỉnh thanh liên hệ
+
+Zalo dùng nền trắng, bỏ vòng xanh lồng nhau; Facebook được bo tròn đồng bộ cả ở footer. Hotline rung nhẹ, ba logo mạng xã hội nhấp nhô lệch nhịp bằng GSAP, nút về đầu trang nhấp nhô theo chiều dọc. Tất cả nút có hiệu ứng nâng/phóng nhẹ khi hover hoặc focus và thu nhẹ khi nhấn; tôn trọng prefers-reduced-motion. Typecheck, lint, build client và hai test thanh liên hệ đạt. Triển khai frontend release-20261023T022000Z, giữ API hiện tại; HTTPS trả bundle mới và API health vẫn database connected.

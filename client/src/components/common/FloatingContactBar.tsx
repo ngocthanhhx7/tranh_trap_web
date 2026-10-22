@@ -33,6 +33,14 @@ export function FloatingContactBar() {
           repeatDelay: 1.8,
           ease: "sine.inOut",
         });
+        gsap.to(".contact-social .contact-icon", {
+          y: -3,
+          duration: 1.35,
+          stagger: 0.22,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
       });
       return () => media.revert();
     },
@@ -45,19 +53,23 @@ export function FloatingContactBar() {
         href={`tel:${contacts.phone}`}
         aria-label={`Gọi hotline ${contacts.phoneDisplay}`}
       >
-        <Phone size={22} />
+        <span className="contact-icon">
+          <Phone size={22} />
+        </span>
         <span className="contact-tooltip">Gọi {contacts.phoneDisplay}</span>
       </a>
       {socialLinks.map((link) => (
         <a
           key={link.name}
-          className={`contact-round contact-${link.className}`}
+          className={`contact-round contact-social contact-${link.className}`}
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Liên hệ ${link.name}`}
         >
-          <img src={link.icon} alt="" />
+          <span className="contact-icon">
+            <img src={link.icon} alt="" />
+          </span>
           <span className="contact-tooltip">{link.name}</span>
         </a>
       ))}
@@ -75,7 +87,9 @@ export function FloatingContactBar() {
             })
           }
         >
-          <ArrowUp size={22} />
+          <span className="contact-icon">
+            <ArrowUp size={22} />
+          </span>
           <span className="contact-tooltip">Về đầu trang</span>
         </button>
       )}

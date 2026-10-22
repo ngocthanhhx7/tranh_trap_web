@@ -3004,11 +3004,22 @@ body {
   border: 1px solid #749dd250;
   box-shadow: 0 3px 8px #2b374a10;
   transition:
+    transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
     box-shadow 0.2s,
     background-color 0.2s;
 }
-.contact-round:hover {
+.contact-round:hover,
+.contact-round:focus-visible {
+  transform: translateY(-3px) scale(1.08);
   box-shadow: 0 5px 16px #2b374a25;
+}
+.contact-round:active {
+  transform: scale(0.94);
+}
+.contact-icon {
+  display: grid;
+  place-items: center;
+  pointer-events: none;
 }
 .contact-round:focus-visible {
   outline: 3px solid var(--yellow);
@@ -3025,16 +3036,24 @@ body {
   color: #522017;
 }
 .contact-zalo {
-  background: #087bfa;
-  border-color: #087bfa;
+  background: white;
+  border-color: #087bfa20;
 }
 .contact-zalo img {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
 }
 .contact-facebook {
-  border-color: #1877f2;
+  border-color: #4460a020;
+}
+.contact-facebook img,
+.site-footer .socials img[src*="facebook"] {
+  border-radius: 50%;
+}
+.contact-facebook img {
+  width: 32px;
+  height: 32px;
 }
 .contact-tiktok {
   background: #111;
@@ -3044,6 +3063,18 @@ body {
   color: var(--ink);
   background: var(--yellow);
   border-color: var(--yellow);
+}
+.contact-top .contact-icon {
+  animation: contact-arrow-float 1.8s ease-in-out infinite;
+}
+@keyframes contact-arrow-float {
+  0%,
+  100% {
+    transform: translateY(2px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
 }
 .contact-tooltip {
   position: absolute;
@@ -3100,6 +3131,10 @@ body {
     height: 23px;
   }
   .contact-zalo img {
+    width: 31px;
+    height: 31px;
+  }
+  .contact-facebook img {
     width: 28px;
     height: 28px;
   }
@@ -3135,6 +3170,14 @@ body {
   .contact-tooltip,
   .site-footer .socials a {
     transition: none;
+  }
+  .contact-top .contact-icon {
+    animation: none;
+  }
+  .contact-round:hover,
+  .contact-round:focus-visible,
+  .contact-round:active {
+    transform: none;
   }
 }
 .sr-only {
