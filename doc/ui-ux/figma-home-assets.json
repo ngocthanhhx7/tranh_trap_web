@@ -1,0 +1,194 @@
+[
+  {
+    "variable": "imgContainer",
+    "path": "client/public/images/figma/home-0.png"
+  },
+  {
+    "variable": "imgAb6AXuBCqlRe0O3ADy3G6IfE7XqQoRChZkiAsQrr0XGbHyKnGFgowZhEb1Rk1OlazC2PmhGySjhiGqb4IpwqMfeStxLzcNoQoMeAr44Y4BrSLa6Fn9UakExl5ZYvsOv0NzhMlngTEspBspnRc9V3ZbAFf6LljipUgrdJbBkchNmq3TlWlxj3CjFQtOTqU1GOm4DfKsCgFj1Ba5ATZzFu0NjyXvENcUkxi4HIfQzfyEWuADdTcWbRePfsQzHbBbdvaGzUvwJNqlDBlRrAq",
+    "path": "client/public/images/figma/home-1.png"
+  },
+  {
+    "variable": "imgAb6AXuBjVmyo30GbcFOpVi5QjkA7Dz3Qaso4Xq1C6E64Uktg5QDbiq0UuoYQoWJiSQ4XaG4AvTnwKo3U0SyI4O9ODb4LHeJqga4POzQnPeqDqSMaBv9Iknu8FtMsCKeJdp2Gw8IccVJrLl7EnOm3ZwCGb3B4DaRKWxPRKb7Rm7LPghug3XFHmznqqfYvkcv9Ijc8PlVykGv1VrdJc795Bvc64ONej8OZl0HzqSjjfdNmkp",
+    "path": "client/public/images/figma/home-2.png"
+  },
+  {
+    "variable": "imgLinkTranhTrapLogo",
+    "path": "client/public/images/figma/home-3.png"
+  },
+  {
+    "variable": "imgLinkTranhTrapLogo1",
+    "path": "client/public/images/figma/home-4.png"
+  },
+  {
+    "variable": "imgThamTTrapMascot",
+    "path": "client/public/images/figma/home-5.png"
+  },
+  {
+    "variable": "imgContainer1",
+    "path": "client/public/images/figma/home-6.svg"
+  },
+  {
+    "variable": "imgContainer2",
+    "path": "client/public/images/figma/home-7.svg"
+  },
+  {
+    "variable": "imgContainer3",
+    "path": "client/public/images/figma/home-8.svg"
+  },
+  {
+    "variable": "imgContainer4",
+    "path": "client/public/images/figma/home-9.svg"
+  },
+  {
+    "variable": "imgContainer5",
+    "path": "client/public/images/figma/home-10.svg"
+  },
+  {
+    "variable": "imgContainer6",
+    "path": "client/public/images/figma/home-11.svg"
+  },
+  {
+    "variable": "imgContainer7",
+    "path": "client/public/images/figma/home-12.svg"
+  },
+  {
+    "variable": "imgContainer8",
+    "path": "client/public/images/figma/home-13.svg"
+  },
+  {
+    "variable": "imgContainer9",
+    "path": "client/public/images/figma/home-14.svg"
+  },
+  {
+    "variable": "imgContainer10",
+    "path": "client/public/images/figma/home-15.svg"
+  },
+  {
+    "variable": "imgContainer11",
+    "path": "client/public/images/figma/home-16.svg"
+  },
+  {
+    "variable": "imgContainer12",
+    "path": "client/public/images/figma/home-17.svg"
+  },
+  {
+    "variable": "imgContainer13",
+    "path": "client/public/images/figma/home-18.svg"
+  },
+  {
+    "variable": "imgContainer14",
+    "path": "client/public/images/figma/home-19.svg"
+  },
+  {
+    "variable": "imgContainer15",
+    "path": "client/public/images/figma/home-20.svg"
+  },
+  {
+    "variable": "imgContainer16",
+    "path": "client/public/images/figma/home-21.svg"
+  },
+  {
+    "variable": "imgMargin",
+    "path": "client/public/images/figma/home-22.svg"
+  },
+  {
+    "variable": "imgContainer17",
+    "path": "client/public/images/figma/home-23.svg"
+  },
+  {
+    "variable": "imgContainer18",
+    "path": "client/public/images/figma/home-24.svg"
+  },
+  {
+    "variable": "imgContainer19",
+    "path": "client/public/images/figma/home-25.svg"
+  },
+  {
+    "variable": "imgContainer20",
+    "path": "client/public/images/figma/home-26.svg"
+  },
+  {
+    "variable": "imgContainer21",
+    "path": "client/public/images/figma/home-27.svg"
+  },
+  {
+    "variable": "imgMargin1",
+    "path": "client/public/images/figma/home-28.svg"
+  },
+  {
+    "variable": "imgContainer22",
+    "path": "client/public/images/figma/home-29.svg"
+  },
+  {
+    "variable": "imgContainer23",
+    "path": "client/public/images/figma/home-30.svg"
+  },
+  {
+    "variable": "imgContainer24",
+    "path": "client/public/images/figma/home-31.svg"
+  },
+  {
+    "variable": "imgContainer25",
+    "path": "client/public/images/figma/home-32.svg"
+  },
+  {
+    "variable": "imgContainer26",
+    "path": "client/public/images/figma/home-33.svg"
+  },
+  {
+    "variable": "imgContainer27",
+    "path": "client/public/images/figma/home-34.svg"
+  },
+  {
+    "variable": "imgContainer28",
+    "path": "client/public/images/figma/home-35.svg"
+  },
+  {
+    "variable": "imgMargin2",
+    "path": "client/public/images/figma/home-36.svg"
+  },
+  {
+    "variable": "imgMargin3",
+    "path": "client/public/images/figma/home-37.svg"
+  },
+  {
+    "variable": "imgMargin4",
+    "path": "client/public/images/figma/home-38.svg"
+  },
+  {
+    "variable": "imgContainer29",
+    "path": "client/public/images/figma/home-39.svg"
+  },
+  {
+    "variable": "imgContainer30",
+    "path": "client/public/images/figma/home-40.svg"
+  },
+  {
+    "variable": "imgContainer31",
+    "path": "client/public/images/figma/home-41.svg"
+  },
+  {
+    "variable": "imgContainer32",
+    "path": "client/public/images/figma/home-42.svg"
+  },
+  {
+    "variable": "imgContainer33",
+    "path": "client/public/images/figma/home-43.svg"
+  },
+  {
+    "variable": "imgContainer34",
+    "path": "client/public/images/figma/home-44.svg"
+  },
+  {
+    "variable": "imgContainer35",
+    "path": "client/public/images/figma/home-45.svg"
+  },
+  {
+    "variable": "imgContainer36",
+    "path": "client/public/images/figma/home-46.svg"
+  },
+  {
+    "variable": "imgContainer37",
+    "path": "client/public/images/figma/home-47.svg"
+  }
+]
