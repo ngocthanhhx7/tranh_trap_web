@@ -1,8 +1,29 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { expect, it } from "vitest";
+import { expect, it, vi } from "vitest";
 import { FloatingContactBar } from "../src/components/common/FloatingContactBar";
 import { BrandMarquee } from "../src/components/common/BrandMarquee";
 import { contacts } from "../src/config/contacts";
+
+it("collapses mobile contacts initially and closes on Escape or outside touch", () => {
+  const original = window.matchMedia;
+  const mock = vi.spyOn(window, "matchMedia").mockImplementation((query) => ({
+    ...original(query),
+    matches: query === "(max-width: 900px)",
+  }));
+  try {
+    render(<FloatingContactBar />);
+    expect(screen.queryByRole("link", { name: "Liên hệ Zalo" })).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Mở liên hệ nhanh" }));
+    expect(screen.getByRole("link", { name: "Liên hệ Zalo" })).toBeTruthy();
+    fireEvent.keyDown(document, { key: "Escape" });
+    expect(screen.queryByRole("link", { name: "Liên hệ Zalo" })).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Mở liên hệ nhanh" }));
+    fireEvent.pointerDown(document.body);
+    expect(screen.queryByRole("link", { name: "Liên hệ Zalo" })).toBeNull();
+  } finally {
+    mock.mockRestore();
+  }
+});
 
 it("uses the supplied social links and shows Back to Top only past 300px", () => {
   Object.defineProperty(window, "scrollY", { value: 0, writable: true });

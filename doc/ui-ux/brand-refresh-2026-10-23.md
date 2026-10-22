@@ -24,3 +24,7 @@ GSAP dùng skill gsap-react và gsap-core: useGSAP có scope/ref và cleanup; ch
 ## Tinh chỉnh thanh liên hệ
 
 Zalo dùng nền trắng, bỏ vòng xanh lồng nhau; Facebook được bo tròn đồng bộ cả ở footer. Hotline rung nhẹ, ba logo mạng xã hội nhấp nhô lệch nhịp bằng GSAP, nút về đầu trang nhấp nhô theo chiều dọc. Tất cả nút có hiệu ứng nâng/phóng nhẹ khi hover hoặc focus và thu nhẹ khi nhấn; tôn trọng prefers-reduced-motion. Typecheck, lint, build client và hai test thanh liên hệ đạt. Triển khai frontend release-20261023T022000Z, giữ API hiện tại; HTTPS trả bundle mới và API health vẫn database connected.
+
+## Thanh liên hệ mobile thu gọn
+
+Ở màn hình tối đa 900px, mặc định chỉ hiện một nút liên hệ 44px ở góc trái dưới và tính safe-area. Nhấn mở các nút theo chiều dọc, giới hạn chiều cao theo viewport; đóng khi chọn kênh, chạm ngoài hoặc Escape. Các liên kết bị ẩn không nằm trong thứ tự Tab. Desktop giữ thanh dọc luôn mở; khi chat mobile mở vẫn ẩn thanh liên hệ. Đã đạt lint, build và 3 test thanh liên hệ, gồm thao tác mở/đóng trên mobile. Frontend release-20261023T024000Z đã được xác nhận qua HTTPS; trình duyệt tự động hiện bị tắt nên chưa chụp lại giao diện mobile trực tiếp.

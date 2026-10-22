@@ -3008,6 +3008,15 @@ body {
     box-shadow 0.2s,
     background-color 0.2s;
 }
+.contact-options {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.contact-options[hidden],
+.contact-toggle {
+  display: none;
+}
 .contact-round:hover,
 .contact-round:focus-visible {
   transform: translateY(-3px) scale(1.08);
@@ -3116,14 +3125,34 @@ body {
     bottom: max(12px, env(safe-area-inset-bottom));
     left: 10px;
     transform: none;
-    flex-direction: row;
-    gap: 7px;
-    padding: 7px;
-    border-radius: 30px;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
   }
   .contact-round {
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
+  }
+  .contact-toggle {
+    display: grid;
+    background: var(--coral);
+    color: #522017;
+    border: 2px solid white;
+    box-shadow: 0 3px 14px #2b374a25;
+  }
+  .contact-options {
+    padding: 7px;
+    margin-left: -7px;
+    gap: 9px;
+    background: #fffffff5;
+    border: 1px solid #749dd230;
+    border-radius: 30px;
+    box-shadow: 0 6px 25px #2b374a20;
+    max-height: calc(100dvh - 110px);
+    overflow-y: auto;
   }
   .contact-round img {
     width: 23px;
@@ -3138,10 +3167,7 @@ body {
     height: 28px;
   }
   .contact-tooltip {
-    top: auto;
-    bottom: calc(100% + 12px);
-    left: 0;
-    transform: translateY(4px);
+    display: none;
   }
   .contact-round:hover .contact-tooltip,
   .contact-round:focus-visible .contact-tooltip {
