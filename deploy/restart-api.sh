@@ -1,13 +1,13 @@
 #!/bin/bash
 set -euo pipefail
-# Docker reads this owner-managed file; never print or source its contents.
+# The application loads this owner-managed file with dotenv; never print or source it.
 image="${1:-$(docker inspect --format '{{.Config.Image}}' tranhtrap-api)}"
 previous="$(docker inspect --format '{{.Config.Image}}' tranhtrap-api 2>/dev/null || true)"
 docker rm -f tranhtrap-api >/dev/null 2>&1 || true
 start_api() {
   docker run -d --name tranhtrap-api --restart unless-stopped \
     --network tranhtrap --publish 127.0.0.1:4000:4000 \
-    --env-file /opt/tranhtrap/shared/.env \
+    --mount type=bind,source=/opt/tranhtrap/shared/.env,target=/app/server/.env,readonly \
     --env NODE_ENV=production --env PORT=4000 --env TRUST_PROXY_HOPS=1 \
     --env CLIENT_ORIGIN=https://tranhtrap.com.vn \
     --env MONGODB_URI=mongodb://tranhtrap-mongo:27017/tranh_trap_web \

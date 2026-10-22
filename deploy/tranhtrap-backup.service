@@ -1,0 +1,9 @@
+[Unit]
+Description=Tranh Trap MongoDB local backup
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/tranhtrap-backup
+UMask=0077
