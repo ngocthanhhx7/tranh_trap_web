@@ -9,13 +9,13 @@ export const socialLinks = [
   {
     name: "Zalo",
     href: contacts.zalo,
-    icon: "/images/bar/Icon_of_Zalo.svg.webp",
+    icon: "/images/bar/zalo.svg",
     className: "zalo",
   },
   {
     name: "Facebook",
     href: contacts.facebook,
-    icon: "/images/bar/facebook-color-svgrepo-com.svg",
+    icon: "/images/bar/facebook.svg",
     className: "facebook",
   },
   {
